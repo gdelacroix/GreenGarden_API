@@ -86,7 +86,7 @@ class AuthController
             if ($user && password_verify($password, $user->getPassword())) {
                 session_start();
                 $_SESSION['user_id'] = $user->getId_User();
-                $_SESSION['user_type'] = UserType::getUserTypeById($user->getId_UserType())->getLibelle();
+                $_SESSION['user_type'] = UserType::loadLibelleById($user->getId_UserType());
                 $_SESSION['logged_in'] = true;
 
                 http_response_code(200);
