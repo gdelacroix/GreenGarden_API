@@ -125,6 +125,7 @@ Swagger permet de tester facilement les routes de l’API sans avoir besoin d’
 
 ## 🧹 À faire
 
+- [ ] Ajouter une fonctionnalité pour l'upload de fichier image
 - [ ] Ajouter une couche d'authentification (JWT)
 - [ ] Gérer les erreurs 404/500 de façon plus fine
 - [ ] Implémenter des tests unitaires
