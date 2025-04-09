@@ -1,0 +1,199 @@
+openapi: 3.0.0
+info:
+  title: Mon API PHP
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080
+    description: Serveur local de l'API
+
+paths:
+  /login:
+    post:
+      summary: "Connexion d'un utilisateur"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                login:
+                  type: string
+                password:
+                  type: string
+      responses:
+        '200':
+          description: "Connexion réussie"
+        '401':
+          description: "Identifiants incorrects"
+
+  /register:
+    post:
+      summary: "Inscription d'un utilisateur"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                login:
+                  type: string
+                password:
+                  type: string
+      responses:
+        '201':
+          description: "Utilisateur créé"
+        '400':
+          description: "Données invalides"
+
+  /products:
+    get:
+      summary: "Récupérer la liste des produits ou un produit par ID"
+      parameters:
+        - name: id
+          in: query
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: "Liste des produits ou détails d’un produit"
+        '404':
+          description: "Produit non trouvé"
+    post:
+      summary: "Créer un nouveau produit"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nom_produit:
+                  type: string
+                description_produit:
+                  type: string
+                ref_fournisseur:
+                  type: string
+                prix_produit:
+                  type: number
+                categorie:
+                  type: string
+                fournisseur:
+                  type: string
+                image_produit:
+                  type: string
+                taux_tva:
+                  type: number
+      responses:
+        '201':
+          description: "Produit créé"
+    put:
+      summary: "Mettre à jour un produit"
+      parameters:
+        - name: id
+          in: query
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nom_produit:
+                  type: string
+                description_produit:
+                  type: string
+                ref_fournisseur:
+                  type: string
+                prix_produit:
+                  type: number
+                categorie:
+                  type: string
+                fournisseur:
+                  type: string
+                image_produit:
+                  type: string
+                taux_tva:
+                  type: number
+      responses:
+        '200':
+          description: "Produit modifié avec succès"
+        '404':
+          description: "Produit non trouvé"
+    delete:
+      summary: "Supprimer un produit"
+      parameters:
+        - name: id
+          in: query
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: "Produit supprimé avec succès"
+        '404':
+          description: "Produit non trouvé"
+
+
+  /product-search:
+    get:
+      summary: "Rechercher un produit par nom"
+      parameters:
+        - name: name
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: "Produits trouvés"
+        '404':
+          description: "Aucun produit trouvé"
+
+  /product-slug:
+    get:
+      summary: "Rechercher un produit par slug"
+      parameters:
+        - name: slug
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: "Produit trouvé"
+        '404':
+          description: "Produit non trouvé"
+
+  /categories:
+    get:
+      summary: "Récupérer la liste des catégories ou un seul grâce à son id"
+      parameters:
+        - name: id
+          in: query
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: "Liste des catégories"
+
+
+  /suppliers:
+    get:
+      summary: "Récupérer la liste des fournisseurs ou un seul grâce à son id"
+      parameters:
+        - name: id
+          in: query
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: "Liste des fournisseurs"
+
