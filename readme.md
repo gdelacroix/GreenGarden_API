@@ -17,8 +17,8 @@ Cette API RESTful permet la gestion de produits, catégories et fournisseurs pou
 ### 1. Cloner ce dépôt
 
 ```bash
-git clone <url-du-repo>
-cd <nom-du-dossier>
+git clone https://github.com/gdelacroix/GreenGarden_API.git
+cd greengarden-api
 ```
 ---
 
