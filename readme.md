@@ -65,19 +65,18 @@ Swagger permet de tester facilement les routes de l’API sans avoir besoin d’
 
 ### 📂 Catégories
 
-| Méthode | Endpoint                | Description                         |
-|--------:|-------------------------|-------------------------------------|
-| GET     | `/api/categories`       | Liste toutes les catégories         |
-| POST    | `/api/categories`       | Ajoute une nouvelle catégorie       |
+| Méthode | Endpoint                | Description                                                         |
+|--------:|-------------------------|---------------------------------------------------------------------|
+| GET     | `/api/categories`       | Liste toutes les catégories ou une seule si l'id est fourni         |
+
 
 ---
 
 ### 👤 Fournisseurs
 
-| Méthode | Endpoint                | Description                         |
-|--------:|-------------------------|-------------------------------------|
-| GET     | `/api/fournisseurs`     | Liste tous les fournisseurs         |
-| POST    | `/api/fournisseurs`     | Ajoute un nouveau fournisseur       |
+| Méthode | Endpoint                | Description                                                       |
+|--------:|-------------------------|-------------------------------------------------------------------|
+| GET     | `/api/fournisseurs`     | Liste tous les fournisseurs ou un seul si l'id est fourni         |
 
 ---
 
